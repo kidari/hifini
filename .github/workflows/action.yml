@@ -1,0 +1,27 @@
+name: 'hifini sign in'
+
+on:
+  push:
+    branches: 
+      - master
+  schedule:
+    - cron: '0 16 * * *'
+
+jobs:
+  hifi:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout codes'
+      uses: actions/checkout@v2
+    - name: '初始化Python'
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: '安装依赖'
+      run: pip install requests
+    - name: '签到'
+      env:
+        bbs_token: ${{ secrets.bbs_token }}
+        bbs_sid: ${{ secrets.bbs_sid }}
+        Hm_lvt_4ab5ca5f7f036f4a4747f1836fffe6f2: ${{ secrets.Hm_lvt_4ab5ca5f7f036f4a4747f1836fffe6f2 }}
+      run: python cookietest.py
