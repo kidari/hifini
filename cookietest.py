@@ -11,17 +11,17 @@ def contextStr(str='==='):
   context={
       "msg_type": "text",
       "content": {
-          "text": str+"hifi "+time.strftime('%H:%M:%S', time.localtime(time.time()+28800))
+          "text": str+" hifi "+time.strftime('%H:%M:%S', time.localtime(time.time()+28800))
       }
   } 
   return context
 roburl = os.environ["MSG_ROB"]
 if "成功签到" in resultHtml:
   resultStr = contextStr("成功签到")
-  res=requests.post(url=roburl,data=protect(json.dumps(resultStr)),headers={"Content-type": "application/json; charset=utf-8"})
+  res=requests.post(url=roburl,data=json.dumps(resultStr),headers={"Content-type": "application/json; charset=utf-8"})
 if "已经签过" in resultHtml:
   resultStr = contextStr("已经签过")
-  res=requests.post(url=roburl,data=protect(json.dumps(resultStr)),headers={"Content-type": "application/json; charset=utf-8"})  
+  res=requests.post(url=roburl,data=json.dumps(resultStr),headers={"Content-type": "application/json; charset=utf-8"})  
 else:
   resultStr = contextStr("签到失败")
-  res=requests.post(url=roburl,data=protect(json.dumps(resultStr)),headers={"Content-type": "application/json; charset=utf-8"})
+  res=requests.post(url=roburl,data=json.dumps(resultStr),headers={"Content-type": "application/json; charset=utf-8"})
