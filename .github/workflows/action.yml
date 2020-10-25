@@ -3,7 +3,7 @@ name: 'hifini sign in'
 on:
   push:
     branches: 
-      - master
+      - main
   schedule:
     - cron: '0 16 * * *'
 
@@ -24,4 +24,5 @@ jobs:
         bbs_token: ${{ secrets.bbs_token }}
         bbs_sid: ${{ secrets.bbs_sid }}
         Hm_lvt_4ab5ca5f7f036f4a4747f1836fffe6f2: ${{ secrets.Hm_lvt_4ab5ca5f7f036f4a4747f1836fffe6f2 }}
+        MSG_ROB: ${{ secrets.MSG_ROB }}
       run: python cookietest.py
