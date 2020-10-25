@@ -15,13 +15,13 @@ def contextStr(str='==='):
       }
   } 
   return context
-roburl = os.environ["msg_rob"]
+roburl = os.environ["MSG_ROB"]
 if "成功签到" in resultHtml:
   resultStr = contextStr("成功签到")
-  res=resquests.post(url=roburl,data=protect(json.dumps(resultStr)),headers={"Content-type": "application/json; charset=utf-8"})
+  res=requests.post(url=roburl,data=protect(json.dumps(resultStr)),headers={"Content-type": "application/json; charset=utf-8"})
 if "已经签过" in resultHtml:
   resultStr = contextStr("已经签过")
-  res=resquests.post(url=roburl,data=protect(json.dumps(resultStr)),headers={"Content-type": "application/json; charset=utf-8"})  
+  res=requests.post(url=roburl,data=protect(json.dumps(resultStr)),headers={"Content-type": "application/json; charset=utf-8"})  
 else:
   resultStr = contextStr("签到失败")
-  res=resquests.post(url=roburl,data=protect(json.dumps(resultStr)),headers={"Content-type": "application/json; charset=utf-8"})
+  res=requests.post(url=roburl,data=protect(json.dumps(resultStr)),headers={"Content-type": "application/json; charset=utf-8"})
