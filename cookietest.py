@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import requests,os,time
+import requests,os,time,json
 jar = requests.cookies.RequestsCookieJar()
 jar.set('Hm_lvt_4ab5ca5f7f036f4a4747f1836fffe6f2', os.environ["Hm_lvt_4ab5ca5f7f036f4a4747f1836fffe6f2"], domain='.hifini.com', path='/')
 jar.set('bbs_token', os.environ["bbs_token"], domain='.hifini.com', path='/')
